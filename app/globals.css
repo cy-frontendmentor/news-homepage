@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply grid min-h-screen place-content-center bg-white-off;
+  }
+  p {
+    @apply text-[15px] leading-[26px] text-blue-grayish-dark;
+  }
+}
