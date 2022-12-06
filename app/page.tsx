@@ -3,26 +3,38 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 const Page = () => {
-  const [toggleMenu, setToggleMenu] = useState(true);
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className=" relative max-w-[1440px] px-4 pt-7 pb-20 md:mb-[55px] md:pt-[97px] md:pb-[129px] lg:px-[165px] ">
-      <nav className="mb-[37px] flex w-full  justify-between">
+      <nav className="mb-[37px] flex w-full  items-center justify-between">
         <Image
           src="/images/logo.svg"
           alt="logo"
           height={28}
           width={44.98}
+          className="flex-none md:hidden"
+        ></Image>
+        <Image
+          src="/images/logo.svg"
+          alt="logo"
+          height={40}
+          width={64}
+          className="hidden flex-none md:block "
         ></Image>
         <button
-          className="z-50 md:hidden"
+          className="z-50 h-[31px] w-[31px] md:hidden"
           onClick={() => setToggleMenu(!toggleMenu)}
         >
           <Image
-            src="/images/icon-menu.svg"
+            src={
+              toggleMenu
+                ? `/images/icon-menu-close.svg`
+                : "/images/icon-menu.svg"
+            }
             alt="hamburger-button"
             width={40}
             height={17}
-            className=""
+            className=" transition-all"
           ></Image>
         </button>
         {toggleMenu && (
